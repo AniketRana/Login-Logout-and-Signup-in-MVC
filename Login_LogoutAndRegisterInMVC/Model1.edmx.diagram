@@ -7,6 +7,8 @@
       <Diagram DiagramId="98649e5b77e14db6a3ebef8ef3ccda1d" Name="Diagram1">
         <EntityTypeShape EntityType="AniketModel.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AniketModel.User" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AniketModel.UserRole" Width="1.5" PointX="5.875" PointY="1.5" />
+        <AssociationConnector Association="AniketModel.FK_UserRole_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

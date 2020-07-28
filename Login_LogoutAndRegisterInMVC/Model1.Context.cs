@@ -27,7 +27,6 @@ namespace Login_LogoutAndRegisterInMVC
     
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<User> Users { get; set; }
-
-        public System.Data.Entity.DbSet<Login_LogoutAndRegisterInMVC.Models.Membership> Memberships { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
     }
 }

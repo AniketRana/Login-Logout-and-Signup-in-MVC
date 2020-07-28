@@ -10,7 +10,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
 {
     public class AccountController : Controller
     {
-        //[AllowAnonymous]
+        [AllowAnonymous]
         // GET: Account
         public ActionResult Login() 
         {

@@ -16,6 +16,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         private AniketEntities db = new AniketEntities();
 
         // GET: Employees
+        
         public ActionResult Index()
         {
             return View(db.Employees.ToList());
@@ -37,6 +38,8 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         }
 
         // GET: Employees/Create
+
+        [Authorize(Roles = "Admin,Customer")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +50,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Customer")]
         public ActionResult Create([Bind(Include = "Id,Name,Designation,Salary")] Employee employee)
         {
             if (ModelState.IsValid)
@@ -60,6 +64,8 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         }
 
         // GET: Employees/Edit/5
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +85,8 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit([Bind(Include = "Id,Name,Designation,Salary")] Employee employee)
         {
             if (ModelState.IsValid)
@@ -91,6 +99,8 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         }
 
         // GET: Employees/Delete/5
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +118,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Employee employee = db.Employees.Find(id);
@@ -115,11 +126,11 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //[AllowAnonymous]
-        //public ActionResult About()
-        //{
-        //    return View();
-        //}
+        [AllowAnonymous]
+        public ActionResult About()
+        {
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
