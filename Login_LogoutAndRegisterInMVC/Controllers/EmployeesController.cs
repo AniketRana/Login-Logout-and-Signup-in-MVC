@@ -20,7 +20,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
         public ActionResult Index()
         {
             return View(db.Employees.ToList());
-        }
+        } 
 
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
