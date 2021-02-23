@@ -14,7 +14,7 @@ namespace Login_LogoutAndRegisterInMVC.Controllers
     public class EmployeesController : Controller
     {
         private AniketEntities db = new AniketEntities();
-
+         
         // GET: Employees
         
         public ActionResult Index()
